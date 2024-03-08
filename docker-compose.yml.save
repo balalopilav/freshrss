@@ -1,0 +1,16 @@
+version: "2.1"
+services:
+  freshrss:
+    image: lscr.io/linuxserver/freshrss:latest
+    container_name: freshrss
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Berlin
+      - APP_URL=https://rss.bilalaydin.de
+    volumes:
+      - ./data:/config
+    ports:
+      - 5001:443
+    restart: unless-stopped
+
